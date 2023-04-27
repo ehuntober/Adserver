@@ -4,7 +4,7 @@ from django.db import models
 
 from django.contrib.auth.models import User 
 
-class Ad(mdoels.Model):
+class Ad(models.Model):
     title = models.CharField(max_length=255)
     image = models.ImageField(upload_to="ads")
     url = models.URLField()
