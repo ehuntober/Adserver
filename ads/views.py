@@ -14,3 +14,11 @@ class AdListCreateAPIView(generics.ListCreateAPIView):
     
     def perform_create(self, serializer):
         serializer.save(advertiser=self.request.user)
+        
+
+class AdRetrieveUpdateDestoryAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Ad.objects.all()
+    serializer_class = AdSerializer 
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    
+    
