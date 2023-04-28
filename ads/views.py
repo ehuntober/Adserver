@@ -39,7 +39,7 @@ class AdvertiserDashboardAPIView(generics.ListAPIView):
     serializer_class = AdSerializer
     
     def get_queryset(self):
-        return Ad.objects.filter(adverster=self.request.user)
+        return Ad.objects.filter(advertiser=self.request.user)
     
     
 class AdAnalyticsAPIView(APIView):
