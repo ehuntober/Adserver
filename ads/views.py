@@ -50,6 +50,14 @@ class AdAnalyticsAPIView(APIView):
         advertiser_count = Ad.objects.values('advertiser').distinct().count()
         top_ads = Ad.objects.annotate(click_sum=Sum('click_count')).order_by('-click_sum')[:5]
         
+        return Response({
+            'ad_count': ad_count,
+            'click_count': click_count,
+            'impression_count': impression_count,
+            'advertiser_count': advertiser_count,
+            'top_ads':AdSerializer(top_ads,many=True).data
+        })
+        
         
 
     
