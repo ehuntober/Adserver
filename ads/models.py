@@ -10,6 +10,10 @@ class Ad(models.Model):
     url = models.URLField()
     advertiser = models.ForeignKey(User, on_delete = models.CASCADE)
     
+    
+    click_count = models.PositiveIntegerField(default=0)
+    impression_count = models.PositiveIntegerField(default=0)
+    
     def __str__(self):
         return self.title
     
