@@ -1,8 +1,10 @@
-from django.urls import path
+from django.urls import path ,re_path as url
 from ads.views import AdListCreateAPIView , AdRetrieveUpdateDestoryAPIView ,UserProfileRetrieveUpdateAPIView ,\
     AdvertiserDashboardAPIView , AdAnalyticsAPIView
 
-from django.conf.urls import url 
+
+# from django.conf.urls import url 
+ 
 from rest_framework_swagger.views import get_swagger_view
 
 schema_view = get_swagger_view(title = 'Ads Management API')
