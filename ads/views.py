@@ -31,7 +31,7 @@ class UserProfileRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
         return UserProfile.objects.get(user=self.request.user)
     
     
-class AdvertiserDashboardAPIView(generic.ListAPIView):
+class AdvertiserDashboardAPIView(generics.ListAPIView):
     serializer_class = AdSerializer
     
     def get_queryset(self):
