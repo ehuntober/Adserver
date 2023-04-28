@@ -25,4 +25,11 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
     
+
+class AdvertiserReview(models.Model):
+    ad = models.ForeignKey(Ad, on_delete=models.CASCADE, related_name='reviews')
+    rating = models.PositiveIntegerField()
+    comment = models.TextField()
     
+    def __str__(self):
+        return f"{self.ad.title} - {self.rating}"
