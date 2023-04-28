@@ -4,8 +4,9 @@ from django.shortcuts import render
 
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from ads.models import Ad 
-from ads.serializers import AdSerializer
+from ads.models import Ad , UserProfile
+from ads.serializers import AdSerializer , UserProfileSerializer
+from django.contrib.auth.models import User
 
 class AdListCreateAPIView(generics.ListCreateAPIView):
     queryset = Ad.objects.all()
