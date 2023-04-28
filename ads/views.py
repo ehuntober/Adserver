@@ -23,3 +23,15 @@ class AdRetrieveUpdateDestoryAPIView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
     
     
+class UserProfileRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
+    
+    def get_object(self):
+        return UserProfile.objects.get(user=self.request.user)
+    
+    
+# class AdvertiserDashboardAPIView(generic.ListAPIView):
+
+    
+    
