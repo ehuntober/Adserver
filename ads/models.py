@@ -15,3 +15,10 @@ class Ad(models.Model):
     
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    company_name = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=20)
+    
+    def __str__(self):
+        return self.user.username
+    
+    
