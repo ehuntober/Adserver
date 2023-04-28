@@ -43,6 +43,7 @@ class AdvertiserDashboardAPIView(generics.ListAPIView):
     
     
 class AdAnalyticsAPIView(APIView):
+    
     def get(self, request):
         ad_count = Ad.objects.count()
         click_count = Ad.objects.aggregate(Sum('click_count'))['click_count__sum']
