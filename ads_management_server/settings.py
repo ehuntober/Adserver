@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'ads',
     'rest_framework_swagger',
+    'drf_yasg',
 ]
 
 REST_FRAMEWORK = {
