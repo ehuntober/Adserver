@@ -6,10 +6,26 @@ from ads.views import AdListCreateAPIView , AdRetrieveUpdateDestoryAPIView ,User
 # from django.conf.urls import url 
  
 from rest_framework_swagger.views import get_swagger_view
+schema_view = get_swagger_view(title = 'Ads Management API')
+
+
+# drf_yasg code starts here
+from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Ads Management API",
+        default_version='v1',
+        description="Welcome to Adserver",
+        terms_of_service="https://www.adserver.org",
+        contact=openapi.Contact(email="www.adserver.org"),
+        license=openapi.License(name="Awesome IP"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
 
-schema_view = get_swagger_view(title = 'Ads Management API')
 
 urlpatterns = [
     path('ads/',AdListCreateAPIView.as_view(), name='ad_list_create'),
